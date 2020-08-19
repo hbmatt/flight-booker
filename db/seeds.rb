@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Airport.create([
+  {code: 'ATL'}, {code: 'PEK'}, {code: 'ORD'}, {code: 'LHR'}, {code: 'HND'}, {code: 'LAX'}, {code: 'CDG'}, {code: 'ICN'}, {code: 'DEN'}, {code: 'HKG'}, {code: 'SFO'}, {code: 'SYD'}, {code: 'JFK'}, {code: 'AMS'}
+])
