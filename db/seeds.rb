@@ -7,5 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Airport.create([
-  {code: 'ATL'}, {code: 'PEK'}, {code: 'ORD'}, {code: 'LHR'}, {code: 'HND'}, {code: 'LAX'}, {code: 'CDG'}, {code: 'ICN'}, {code: 'DEN'}, {code: 'HKG'}, {code: 'SFO'}, {code: 'SYD'}, {code: 'JFK'}, {code: 'AMS'}
+  {code: 'SFO'}, {code: 'JFK'}, {code: 'ORD'}, {code: 'LAX'}
+])
+
+Flight.create([
+  {from_airport_id: 1, to_airport_id: 2, departure_time: '2020-09-03 06:20', duration: '5h 27m'}, {from_airport_id: 1, to_airport_id: 2, departure_time: '2020-09-03 12:50', duration: '5h 37m'}, {from_airport_id: 2, to_airport_id: 1, departure_time: '2020-09-03 08:10', duration: '6h 16m'}, {from_airport_id: 2, to_airport_id: 1, departure_time: '2020-09-03 14:55', duration: '6h 28m'},
 ])
