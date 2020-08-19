@@ -1,0 +1,29 @@
+<h1>Search Flights</h1>
+
+<%= form_with url: flights_path, method: :get, local: true do |f| %>
+  <%= f.label(:from_airport, "Departure Airport:") %>
+  <%= f.select(:from_airport, @from_airports) %><BR>
+  <%= f.label(:to_airport, "Arrival Airport:") %>
+  <%= f.select(:to_airport, @to_airports) %><BR>
+  <%= f.label(:departure_time, "Departure Date:") %>
+  <%= f.select(:departure_time, @dates) %><BR>
+  <%= f.label(:num_tickets, "Number of Tickets") %>
+  <%= f.select(:num_tickets, @tickets) %><BR>
+  <%= f.submit("Search") %>
+<% end %>
+
+<% if @flights %>
+  <h1>Search Results</h1>
+
+  <p><strong>Departure Airport:</strong> <%= Airport.find(params[:from_airport]).code %></p>
+  <p><strong>Arrival Airport:</strong> <%= Airport.find(params[:to_airport]).code %></p>
+  <p><strong>Date:</strong> <%= @flight_date %></p>
+
+  <%= form_with url: new_booking_path, method: :get do |f| %>
+    <%= f.collection_radio_buttons(:flight_id, @flights, :id, :departure_formatted) do |b| %>
+      <%= b.radio_button %> <%= b.label %> <BR>
+    <% end %>
+    <%= f.hidden_field :num_tickets, value: params[:num_tickets] %>
+    <%= f.submit("Book Flight") %>
+  <% end %>
+<% end %>
