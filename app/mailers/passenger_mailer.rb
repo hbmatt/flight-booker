@@ -3,6 +3,10 @@ class PassengerMailer < ApplicationMailer
 
   def thank_you_email
     @booking = params[:booking]
-    mail(to: @booking.passenger.email, subject: "Booking Confirmation")
+    @passengers = @booking.passengers.all
+    @passengers.each do |passenger|
+      @passenger = passenger
+      mail(to: @passenger.email, subject: "Booking Confirmation")
+    end    
   end
 end
